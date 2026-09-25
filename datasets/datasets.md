@@ -1,31 +1,12 @@
 # Datasets
 
-## ChartQA
-**Source:** Masry, Long, Tan, Joty, Hoque (2022), Findings of ACL
-**Description:** Human-authored and machine-generated question-answer pairs (9.6K + 23.1K) over real-world charts crawled from Statista, Pew Research, Our World in Data, and OECD.
-**Application:** Standard benchmark for evaluating chart-QA visual and logical reasoning, including axis-based value retrieval.
-**Link:** [GitHub — vis-nlp/ChartQA](https://github.com/vis-nlp/ChartQA)
+| Dataset | Source | Description | Link |
+| --- | --- | --- | --- |
+| MedQA (USMLE) | Jin et al., 2021 | Multiple-choice US medical licensing exam questions; the core benchmark used by MedAgents, MDAgents, and AgentClinic-MedQA to test multi-agent clinical reasoning | [GitHub](https://github.com/jind11/MedQA) |
+| PubMedQA | Jin et al., 2019 | Biomedical research question-answering dataset built from PubMed abstracts; used as one of the nine MedAgents evaluation benchmarks | [GitHub](https://pubmedqa.github.io/) |
+| MIMIC-IV | Johnson et al., PhysioNet | De-identified real-world ICU/EHR data; underlies the AgentClinic-MIMIC-IV case suite used to test multi-agent clinical agents on real clinical narratives (requires PhysioNet credentialed access) | [PhysioNet](https://physionet.org/content/mimiciv/2.2/) |
+| AgentClinic benchmark suite (MedQA / NEJM / MIMIC-IV extensions) | Schmidgall et al., 2024 | Interactive multi-agent clinical simulation cases (dialogue-only and multimodal) spanning 9 specialties and 7 languages, purpose-built for evaluating multi-agent clinical decision systems | [GitHub](https://github.com/SamuelSchmidgall/AgentClinic) |
 
-## PlotQA
-**Source:** Methani, Ganguly, Khapra, Kumar (2020), WACV
-**Description:** 28.9 million question-answer pairs over 224,377 real-world scientific plots (bar, line, dot-line), with real-valued (not fixed-vocabulary) answers.
-**Application:** Directly tests whether a model can extract precise numeric values by reading axis scales, rather than selecting from a small answer set.
-**Link:** [GitHub — NiteshMethani/PlotQA](https://github.com/NiteshMethani/PlotQA)
+## Note on oncology-specific patient-level datasets
 
-## CharXiv
-**Source:** Wang, Xia, He, Chen, Liu, Zhu, Liang, Wu, Liu, Malladi, Chevalier, Arora, Chen (2024), NeurIPS
-**Description:** 2,323 real, unedited charts hand-picked from scientific papers on arXiv across 8 major subjects, with descriptive and reasoning question types.
-**Application:** Realistic stress test showing a 33-point gap between top proprietary models (GPT-4o, 47.1%) and human performance (80.5%), much of it attributable to structural element misreading (axes, legends, units).
-**Link:** [GitHub — princeton-nlp/CharXiv](https://github.com/princeton-nlp/CharXiv)
-
-## ChartCap
-**Source:** Lim, Ahn, Kim (2025), arXiv
-**Description:** 565K real-world chart images paired with type-specific, dense captions built via a four-stage generation pipeline with cycle-consistency-based human verification.
-**Application:** Training and evaluating hallucination-free, structurally grounded chart captioning (including correct axis/unit description).
-**Link:** [Project Page](https://junyoung-00.github.io/ChartCap/)
-
-## ChartQAPro
-**Source:** Masry et al. (2025), Findings of ACL
-**Description:** 1,948 questions over 1,341 charts from 157 diverse sources, including infographics and dashboards, spanning multiple-choice, conversational, hypothetical, and unanswerable question types.
-**Application:** Stress-tests axis/scale robustness under messier, more realistic real-world chart formats than earlier benchmarks.
-**Link:** [Hugging Face — ahmed-masry/ChartQAPro](https://huggingface.co/datasets/ahmed-masry/ChartQAPro)
+No open, de-identified dataset of real multidisciplinary tumor board deliberations or recommendations was found during this search — most of the applied virtual-tumor-board papers above (JCO CCI 2026, VISTA Architect, TumorBoard neuro-oncology) evaluate against institution-held clinical guideline sets or internal patient cohorts (e.g. Stanford's thoracic tumor board records) that are not publicly released. The datasets listed above are the closest open, verifiable substitutes for benchmarking multi-agent clinical reasoning in this domain.

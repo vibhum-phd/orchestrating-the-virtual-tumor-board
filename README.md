@@ -1,16 +1,17 @@
-# Awesome MLLM Chart Understanding: Axis Scale & Unit Misreading
+# Awesome Virtual Tumor Board: Multi-Agent AI in Clinical Oncology
 
-A curated, independently verified collection of research papers, datasets, tools, implementations, and learning resources on how Multimodal Large Language Models (MLLMs) and Vision-Language Models (VLMs) read — and misread — axis scales, units, and tick marks when interpreting charts.
+A curated, independently verified collection of research papers, datasets, tools, implementations, and learning resources on orchestrating Virtual Tumor Boards (VTBs) using multi-agent AI and Large Language Models (LLMs) for collaborative clinical decision-making in oncology.
 
 ## Contents
+
 - [Overview](#overview)
 - [AI-Assisted Research Paper](#ai-assisted-research-paper)
 - [Citation Integrity Audit](#citation-integrity-audit)
-- [Foundational Benchmarks](#foundational-benchmarks)
-- [Axis, Scale & Misleading-Chart Studies](#axis-scale--misleading-chart-studies)
-- [Mitigation Methods & Models](#mitigation-methods--models)
-- [Hallucination & Faithfulness Evaluation](#hallucination--faithfulness-evaluation)
-- [Surveys & Reviews](#surveys--reviews)
+- [Foundational Multidisciplinary Tumor Board (MDT) Literature](#foundational-multidisciplinary-tumor-board-mdt-literature)
+- [Foundational Multi-Agent AI Frameworks](#foundational-multi-agent-ai-frameworks)
+- [Evaluation and Benchmarks](#evaluation-and-benchmarks)
+- [Applications: AI-Orchestrated Virtual Tumor Boards](#applications-ai-orchestrated-virtual-tumor-boards--multi-agent-oncology-systems)
+- [Corrected References From the AI-Generated Paper](#corrected-references-from-the-ai-generated-paper-audited-in-lab-1)
 - [Datasets](#datasets)
 - [Tools and Libraries](#tools-and-libraries)
 - [GitHub Implementations](#github-implementations)
@@ -19,157 +20,82 @@ A curated, independently verified collection of research papers, datasets, tools
 
 ## Overview
 
-Charts are among the densest and most common carriers of quantitative information in scientific, financial, and business communication, and Multimodal Large Language Models (MLLMs) such as GPT-4o, Gemini, and open-weight models like InternVL and Qwen-VL are increasingly used to read them automatically. Despite strong scores on standard benchmarks, these models frequently fail at precise visual-spatial reasoning — the exact skill required to map tick marks, axis labels, and units to numerical values. This repository focuses on a specific, underexamined failure mode within that broader problem: **systematic misreading of axis scales and units**, including logarithmic-scale misinterpretation, dual-axis binding errors, and unit/magnitude confusion (e.g., reporting "5" instead of "5 million").
+Multidisciplinary Tumor Boards (MDTs) are the clinical gold standard for cancer care, bringing together medical oncologists, radiation oncologists, surgeons, pathologists, and radiologists to synthesize treatment plans. They are also resource-intensive and geographically constrained, which drove the shift toward telecommunication-based Virtual Tumor Boards (VTBs) — a shift that solved logistical barriers but did not reduce the cognitive load on physicians reviewing complex, multi-modal patient data.
 
-A second, equally important theme covered here is **explanation-level hallucination** — cases where a model reaches the correct final answer while fabricating the intermediate reasoning steps used to read the chart, which causes standard "answer-accuracy" benchmarks to systematically overstate real capability. The resources below span foundational chart-QA benchmarks, mitigation techniques (plot-to-table translation, visual sketch-based reasoning, multi-agent verification), and the growing body of work on hallucination and faithfulness evaluation in chart-focused VLMs.
+This repository focuses on the next stage of that evolution: **Multi-Agent AI Systems (MAS)** that orchestrate specialized LLM agents — each modeling a distinct clinical role or task (guideline retrieval, radiology summarization, molecular interpretation, treatment planning, safety review) — to simulate the collaborative deliberation of a real tumor board, rather than relying on a single, isolated LLM. The collection spans the foundational human-MDT literature that motivates this work, the general-purpose multi-agent LLM frameworks it builds on, benchmarks for evaluating clinical multi-agent systems, and the growing body of applied virtual-tumor-board deployments and pilot studies in oncology (thoracic, neuro-oncology, gastric, head & neck, and hematologic malignancies).
 
-Every paper in this collection was independently verified against a primary scholarly source (arXiv, ACL Anthology, IEEE Xplore, or OpenReview) — not accepted on the strength of an AI-generated citation. See the Citation Integrity Audit section for the full process and results.
+Every paper in this collection was independently verified against a primary scholarly source (journal publisher page, PubMed/PMC, arXiv abstract page, ACL Anthology, or conference proceedings) — not accepted on the strength of an AI-generated citation. See the Citation Integrity Audit section below for the full process and results.
 
 ## AI-Assisted Research Paper
 
-**Assessing Misreading of Axis Scales and Units in AI-Based Chart Interpretation**
-An AI-assisted scholarly review (generated with Gemini 3.1 Pro) surveying how MLLMs misread logarithmic scales, dual axes, and units, and reviewing current mitigation approaches and research gaps in explanation faithfulness.
+**Orchestrating the Virtual Tumor Board: A Scoping Review of Multi-Agent AI and Collaborative Decision-Making in Clinical Oncology**
+An AI-assisted scholarly review (generated with Google Gemini 3.1 Pro) surveying the transition from single-agent to multi-agent AI systems in oncology decision support, covering current approaches, fidelity assessments, and critical limitations around data bias, accountability, and real-world clinical deployment.
 [View Paper](paper/AI_Assisted_Research_Paper.pdf)
 
 ## Citation Integrity Audit
 
-All 10 references originally generated by the AI for the paper above were independently audited against primary scholarly sources (arXiv, ACL Anthology, IEEE Xplore, OpenReview, Semantic Scholar) rather than accepted at face value. Result: **2 fully verified (A)**, **7 required author-metadata correction (B)**, **1 was fabricated and excluded (D)**. Authenticity Score: **72.5 / 100**. Prediction Accuracy against pre-verification plausibility judgments: **80%**. The most common integrity problem found was not missing papers but **misattributed authorship on real, verifiable papers** — a failure mode that survives a casual DOI/arXiv resolve check.
+All 7 references originally generated by the AI for the paper above were independently audited against primary scholarly sources (PubMed, Crossref DOI resolver, ASCO Publications, Springer, and journal publisher sites) rather than accepted at face value. Result: **4 fully verified (A)**, **3 required author-metadata correction (B)**, **0 fabricated**. Authenticity Score: **89.3 / 100**. Prediction Accuracy against pre-verification plausibility judgments: **57.1%** — the AI's most sparsely-formatted citations (missing authors, year, journal, and DOI) were predicted as most likely fake, but all three turned out to be real papers with silently stripped metadata. The most serious integrity problem found was not fabrication but **silent metadata stripping on real, verifiable papers** — a failure mode that a casual "does this paper exist?" check does not catch.
 
 [View Full Audit](citation-audit/Citation_Integrity_Audit.pdf)
 
-## Foundational Benchmarks
+## Foundational Multidisciplinary Tumor Board (MDT) Literature
 
-- **ChartQA: A Benchmark for Question Answering about Charts with Visual and Logical Reasoning**
-  Masry, Long, Tan, Joty, Hoque — Findings of ACL 2022
-  [Paper (ACL Anthology)](https://aclanthology.org/2022.findings-acl.177/)
-  The foundational chart-QA benchmark (9.6K human-written + 23.1K generated questions) against which most later axis-reading and reasoning failures are measured.
+- **Tumour boards and their quality of structures, processes, and team performance in multidisciplinary cancer care: a systematic review** — 2026 systematic review synthesizing 97 studies on MDT structure and process quality. [Paper](https://link.springer.com/article/10.1186/s12913-026-14447-9)
+- **Process quality of decision-making in multidisciplinary cancer team meetings: a structured observational study** — Direct process-quality measurement of real human MDT meetings. [Paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC5693525/)
+- **Higher number of multidisciplinary tumor board meetings per case leads to improved clinical outcome** — *BMC Cancer*, 2020; links MDT frequency to overall survival across 454 matched patients. [Paper](https://bmccancer.biomedcentral.com/articles/10.1186/s12885-020-06809-1)
+- **The impact of tumor board on cancer care: evidence from an umbrella review** — Umbrella review of 5 reviews (147 studies) on outcomes of tumor board discussion. [Paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6995197/)
+- **Virtual multi-institutional tumor board: a strategy for personalized diagnoses and management of rare CNS tumors** — Rogers et al., *J Neuro-Oncology*, 2024; the direct non-AI institutional predecessor of AI-orchestrated VTBs. [Paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11023967/)
 
-- **PlotQA: Reasoning over Scientific Plots**
-  Methani, Ganguly, Khapra, Kumar — WACV 2020
-  [Paper (CVF Open Access)](https://openaccess.thecvf.com/content_WACV_2020/html/Methani_PlotQA_Reasoning_over_Scientific_Plots_WACV_2020_paper.html)
-  Introduces open-vocabulary, real-valued QA over scientific plots, explicitly requiring models to read axis scales rather than select from a fixed vocabulary.
+## Foundational Multi-Agent AI Frameworks
 
-- **CharXiv: Charting Gaps in Realistic Chart Understanding in Multimodal LLMs**
-  Wang, Xia, He, Chen, Liu, Zhu, Liang, Wu, Liu, Malladi, Chevalier, Arora, Chen — NeurIPS 2024
-  [Paper (arXiv)](https://arxiv.org/abs/2406.18521)
-  Shows a 33-point gap between GPT-4o (47.1%) and human performance (80.5%) on realistic, arXiv-sourced charts — direct evidence that headline benchmark scores overstate real chart-reading ability.
+- **AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation Framework** — Wu et al., Microsoft Research, COLM 2024. [Paper (arXiv:2308.08155)](https://arxiv.org/abs/2308.08155)
+- **MedAgents: Large Language Models as Collaborators for Zero-shot Medical Reasoning** — Tang et al., Findings of ACL 2024. [Paper (arXiv:2311.10537)](https://arxiv.org/abs/2311.10537)
+- **MDAgents: An Adaptive Collaboration of LLMs for Medical Decision-Making** — Kim et al., NeurIPS 2024. [Paper (arXiv:2404.15155)](https://arxiv.org/abs/2404.15155)
 
-- **ChartX & ChartVLM: A Versatile Benchmark and Foundation Model for Complicated Chart Reasoning**
-  Xia, Zhang, Ye, Yan, Liu, Zhou, Chen, Dou, Shi, Yan, Qiao — arXiv 2024
-  [Paper (arXiv)](https://arxiv.org/abs/2402.12185)
-  Covers 18 chart types and 22 disciplinary topics, useful for evaluating axis/scale robustness across chart styles beyond simple bar and line charts.
+## Evaluation and Benchmarks
 
-- **ChartBench: A Benchmark for Complex Visual Reasoning in Charts**
-  Xu, Du, Qi, Xu, Yuan, Guo — arXiv 2023/2024
-  [Paper (arXiv)](https://arxiv.org/abs/2312.15915)
-  Deliberately avoids data-point annotations, forcing models to derive values from axis and legend elements the way a human reader would — directly relevant to axis-misreading evaluation.
+- **AgentClinic: a multimodal agent benchmark to evaluate AI in simulated clinical environments** — Schmidgall et al., 2024. [Paper (arXiv:2405.07960)](https://arxiv.org/abs/2405.07960)
+- **MTBBench: A Multimodal Sequential Clinical Decision-Making Benchmark in Oncology** — 2025. [Paper (arXiv:2511.20490)](https://arxiv.org/pdf/2511.20490)
 
-- **ChartQAPro: A More Diverse and Challenging Benchmark for Chart Question Answering**
-  Masry, Islam, Ahmed, Bajaj, Kabir, Kartha, Laskar, Rahman, Rahman, Shahmohammadi, Thakkar, Parvez, Hoque, Joty — Findings of ACL 2025
-  [Paper (ACL Anthology)](https://aclanthology.org/2025.findings-acl.978/)
-  Adds infographics, dashboards, multiple-choice, and unanswerable questions, stress-testing models on messier real-world axis/scale conditions.
+## Applications: AI-Orchestrated Virtual Tumor Boards & Multi-Agent Oncology Systems
 
-- **ChartInsights: Evaluating Multimodal Large Language Models for Low-Level Chart Question Answering**
-  Wu, Yan, Shen, Wang, Tang, Luo — Findings of EMNLP 2024
-  [Paper (ACL Anthology)](https://aclanthology.org/2024.findings-emnlp.710/)
-  Evaluates 19 MLLMs on low-level tasks like value extraction and correlation identification; average accuracy of only 39.8% highlights the gap this repository focuses on.
+- **Virtual oncology collaborative tumor board using multiple artificial intelligence agents** — Wang, Mullick Chowdhury & Nazha, *JCO* 43, 1563 (2025 ASCO abstract). [Paper](https://ascopubs.org/doi/10.1200/JCO.2025.43.16_suppl.1563)
+- **Tumor Board–Inspired Multiagent Artificial Intelligence System for Interpreting Oncology Guidelines** — *JCO Clinical Cancer Informatics*, Jan 2026; full peer-reviewed follow-up, 94%/90% accuracy, outperforms GPT-4o/Claude 3.7/Gemini 2.5. [Paper](https://ascopubs.org/doi/10.1200/CCI-25-00286)
+- **Development, Evaluation, and Deployment of a Multi-Agent System for Thoracic Tumor Board** — Ellis-Caleo et al., Stanford Medicine, 2026; real clinical deployment with post-deployment monitoring. [Paper (arXiv:2604.12161)](https://arxiv.org/abs/2604.12161)
+- **VISTA Architect: A graph database-oriented health AI system demonstrated in multidisciplinary tumor boards** — Stanford Medicine, 2026; 96.4% accuracy across 1,180 patients. [Paper (arXiv:2606.22692)](https://arxiv.org/abs/2606.22692)
+- **TumorBoard: Evidence-Grounded Multi-Agent Decision Support for Longitudinal Neuro-Oncology** — 2026; specialist agents plus an adversarial critic and safety governor. [Paper (arXiv:2608.03190)](https://arxiv.org/abs/2608.03190)
+- **Artificial intelligence-driven virtual tumor board enhances precision care in myelodysplastic syndromes** — medRxiv, 2026; multi-agent "Virtual MDS Panel" rated by 9 blinded international experts. [Paper](https://www.medrxiv.org/content/10.64898/2026.03.26.26349088.full.pdf)
+- **Simulating a virtual tumor board with large language models: a pilot study in NSCLC patients receiving immunotherapy** — Ismayilov et al., *Immunotherapy*, 2025. [Paper](https://pubmed.ncbi.nlm.nih.gov/41190886/)
+- **EvoMDT: a self-evolving multi-agent system for structured clinical decision-making in multi-cancer** — Liu et al., *npj Digital Medicine* 9(1), 124 (2026). [Paper](https://doi.org/10.1038/s41746-025-02304-8)
 
-## Axis, Scale & Misleading-Chart Studies
+## Corrected References From the AI-Generated Paper (Audited in Lab 1)
 
-- **How Good (Or Bad) Are LLMs at Detecting Misleading Visualizations?**
-  Lo, Qu — arXiv 2024 / IEEE TVCG 2025
-  [Paper (arXiv)](https://arxiv.org/abs/2407.17291)
-  Tests four multimodal LLMs against 21 known chart-manipulation issues (including axis truncation and scale distortion) across nine prompting strategies.
-
-- **ChartAttack: Testing the Vulnerability of LLMs to Malicious Prompting in Chart Generation**
-  Ortiz-Barajas, Tonglet, Gupta, Gurevych — arXiv 2026
-  [Paper (arXiv)](https://arxiv.org/abs/2601.12983)
-  Shows MLLMs can be induced to generate misleading charts with manipulated axes/scales that measurably degrade both model and human QA accuracy (17–20 point accuracy drops).
-
-## Mitigation Methods & Models
-
-- **DePlot: One-Shot Visual Language Reasoning by Plot-to-Table Translation**
-  Liu, Eisenschlos, Piccinno, Krichene, Pang, Lee, Joshi, Chen, Collier, Altun — Findings of ACL 2023
-  [Paper (arXiv)](https://arxiv.org/abs/2212.10505)
-  Bypasses direct visual axis-reading entirely by translating a chart image into a linearized data table before handing it to an LLM for reasoning.
-
-- **MatCha: Enhancing Visual Language Pretraining with Math Reasoning and Chart Derendering**
-  Liu, Piccinno, Krichene, Pang, Lee, Joshi, Chen, Collier, Altun — ACL 2023
-  [Paper (ACL Anthology)](https://aclanthology.org/2023.acl-long.714/)
-  Pretrains a model jointly on chart-derendering and math-reasoning tasks, improving numerical/axis-grounded reasoning by up to ~20% over prior SOTA.
-
-- **UniChart: A Universal Vision-Language Pretrained Model for Chart Comprehension and Reasoning**
-  Masry, Kavehzadeh, Do, Hoque, Joty — EMNLP 2023
-  [Paper (ACL Anthology)](https://aclanthology.org/2023.emnlp-main.906/)
-  Introduces low-level pretraining objectives (extracting bars, lines, and axis-grounded data) explicitly designed to strengthen structural chart-element recognition.
-
-- **ChartInstruct: Instruction Tuning for Chart Comprehension and Reasoning**
-  Masry, Shahmohammadi, Parvez, Hoque, Joty — arXiv 2024
-  [Paper (arXiv)](https://arxiv.org/abs/2403.09028)
-  A 191K-instruction, 71K-chart instruction-tuning dataset with both end-to-end and pipeline (chart-to-table-to-LLM) systems.
-
-- **ChartSketcher: Reasoning with Multimodal Feedback and Reflection for Chart Understanding**
-  Huang, Zhang, Ma, Lai, Xu, Li, Wu, Wu, Liu — NeurIPS 2025
-  [Paper (arXiv)](https://arxiv.org/abs/2505.19076)
-  Lets the model annotate its own intermediate reasoning directly onto the chart image (e.g., drawing a line from a data point to the y-axis), mimicking how humans visually trace values to axes.
-
-- **ChartInsighter: An Approach for Mitigating Hallucination in Time-Series Chart Summary Generation with A Benchmark Dataset**
-  Wang, Wang, Shu, Liu, Shao, Liu, Chen — IEEE TVCG 2025
-  [Paper (arXiv)](https://arxiv.org/abs/2501.09349)
-  Uses multi-agent collaboration and a self-consistency check to reduce hallucinated claims in generated chart summaries.
-
-## Hallucination & Faithfulness Evaluation
-
-- **ChartCap: Mitigating Hallucination of Dense Chart Captioning**
-  Lim, Ahn, Kim — arXiv 2025
-  [Paper (arXiv)](https://arxiv.org/abs/2508.03164)
-  A 565K-image dataset of dense, hallucination-free chart captions built via a four-stage pipeline with cycle-consistency human verification.
-
-## Surveys & Reviews
-
-- **Hallucination of Multimodal Large Language Models: A Survey**
-  Bai, Wang, Xiao, He, Han, Zhang, Shou — arXiv 2024
-  [Paper (arXiv)](https://arxiv.org/abs/2404.18930)
-  A comprehensive survey of MLLM hallucination causes, evaluation benchmarks, and mitigation strategies — the broader phenomenon underlying axis/scale misreading.
-
-- **Transformers Utilization in Chart Understanding: A Review of Recent Advances & Future Trends**
-  Al-Shetairy, Hindy, Khattab, Aref — arXiv 2024
-  [Paper (arXiv)](https://arxiv.org/abs/2410.13883)
-  A dedicated review of transformer-based chart-understanding methods, situating axis/scale-reading failures within the broader model landscape.
+- **Enhancing Adoption and Utility of Virtual Tumor Boards: Impact on Community and Rural Oncology Practices** — Powell et al., *JCO Oncology Practice*, 2021. [Paper](https://doi.org/10.1200/OP.20.00480)
+- **The Emergence of Virtual Tumor Boards in Neuro-Oncology: Opportunities and Challenges** — Ekhator et al., *Cureus*, 2022. [Paper](https://doi.org/10.7759/cureus.25682)
+- **National Cancer Grid Virtual Tumor Boards of Head and Neck Cancers** — Thiagarajan et al., *JCO Global Oncology*, 2023. [Paper](https://doi.org/10.1200/GO.22.00348)
+- **The Fidelity of Artificial Intelligence to Multidisciplinary Tumor Board Recommendations for Patients with Gastric Cancer** — Park & Chae, *J Gastrointestinal Cancer*, 2024. [Paper](https://doi.org/10.1007/s12029-023-00967-8)
+- **Artificial intelligence in multidisciplinary tumor boards enhancing decision making and clinical outcomes in oncology** — Wang et al., *iScience*, 2025 (author list corrected per Lab 1 audit). [Paper](https://doi.org/10.1016/j.isci.2025.114082)
+- **Multidisciplinary tumor board decisions and AI-generated recommendations in general surgery** — Deniz et al., *Updates in Surgery*, 2026 (author list corrected per Lab 1 audit). [Paper](https://doi.org/10.1007/s13304-026-02749-w)
 
 ## Datasets
 
-| Dataset | Source | Description | Link |
-|---|---|---|---|
-| ChartQA | Masry et al., 2022 | Human- and machine-generated QA pairs over real-world charts from Statista, Pew Research, OWID, and OECD | [GitHub](https://github.com/vis-nlp/ChartQA) |
-| PlotQA | Methani et al., 2020 | 28.9M QA pairs over 224,377 real-valued scientific plots, designed to require actual axis/scale reading rather than fixed-vocabulary answers | [GitHub](https://github.com/NiteshMethani/PlotQA) |
-| CharXiv | Wang et al., 2024 | 2,323 real, unedited charts hand-picked from arXiv scientific papers, with descriptive and reasoning questions | [GitHub](https://github.com/princeton-nlp/CharXiv) |
-| ChartCap | Lim et al., 2025 | 565K real-world chart images with dense, hallucination-controlled captions | [Project Page](https://junyoung-00.github.io/ChartCap/) |
-| ChartQAPro | Masry et al., 2025 | 1,948 questions over 1,341 charts including infographics, dashboards, and unanswerable questions | [Hugging Face](https://huggingface.co/datasets/ahmed-masry/ChartQAPro) |
+See [`datasets/datasets.md`](datasets/datasets.md) — MedQA, PubMedQA, MIMIC-IV, and the AgentClinic multi-agent benchmark suite.
 
 ## Tools and Libraries
 
-- **[DePlot](https://arxiv.org/abs/2212.10505)** — Plot-to-table derendering module; converts chart images into structured tables to bypass direct visual axis reading.
-- **[MatCha](https://research.google/pubs/matcha-enhancing-visual-language-pretraining-with-math-reasoning-and-chart-derendering/)** — Pix2Struct-based pretraining approach combining chart derendering with math reasoning.
-- **[UniChart](https://aclanthology.org/2023.emnlp-main.906/)** — Universal pretrained chart comprehension model with low- and high-level chart-specific objectives.
-- **[ChartInstruct](https://arxiv.org/abs/2403.09028)** — Instruction-tuning dataset and model family (end-to-end and pipeline variants) for chart comprehension.
-- **[ChartSketcher](https://github.com/MuyeHuang/ChartSketcher)** — Multimodal, feedback-driven step-by-step chart reasoning model built on Qwen2VL-72B.
+See [`tools/tools.md`](tools/tools.md) — AutoGen, CrewAI, LangGraph, MedAgents, and MDAgents.
 
 ## GitHub Implementations
 
-- **[vis-nlp/ChartQA](https://github.com/vis-nlp/ChartQA)** — Official ChartQA dataset and baseline model code; well-documented, actively referenced across the field.
-- **[princeton-nlp/CharXiv](https://github.com/princeton-nlp/CharXiv)** — Official CharXiv benchmark and evaluation code, actively maintained with a public leaderboard.
-- **[MuyeHuang/ChartSketcher](https://github.com/MuyeHuang/ChartSketcher)** — Official ChartSketcher implementation (NeurIPS 2025), includes model weights via Hugging Face/ModelScope.
-- **[wangfen01/ChartInsighter](https://github.com/wangfen01/ChartInsighter)** — Official ChartInsighter code and benchmark dataset for hallucination-reduced time-series chart summarization.
-- **[insait-institute/chartAttack](https://github.com/insait-institute/chartAttack)** — Official ChartAttack framework and AttackViz dataset for testing chart-generation vulnerability to misleading axis/scale manipulation.
+See [`implementations/github-repositories.md`](implementations/github-repositories.md) — official AutoGen, MedAgents, MDAgents, AgentClinic, and CrewAI repositories.
 
 ## Tutorials and Learning Resources
 
-- **[ChartQA GitHub Repository & Docs](https://github.com/vis-nlp/ChartQA)** — Baseline model usage, dataset structure, and citation guidance for the foundational chart-QA benchmark.
-- **[DePlot / MatCha Hugging Face Model Cards](https://huggingface.co/papers/2212.10505)** — Practical usage examples for plot-to-table translation.
-- **[ChartInstruct Model Cards (Hugging Face)](https://huggingface.co/ahmed-masry/ChartInstruct-FlanT5-XL)** — Instruction-tuned chart model usage and prompt formatting examples.
-- **[ChartCap Project Page](https://junyoung-00.github.io/ChartCap/)** — Dataset construction pipeline walkthrough and Visual Consistency Score methodology.
-- **[CharXiv Project Page & Leaderboard](https://charxiv.github.io/)** — Live leaderboard and evaluation methodology for realistic chart understanding.
+- **[AutoGen Documentation](https://microsoft.github.io/autogen/)** — Official multi-agent conversation framework docs, including group-chat and role-based agent patterns directly applicable to tumor-board orchestration.
+- **[MedAgents GitHub README](https://github.com/gersteinlab/MedAgents)** — Setup and usage guide for the role-playing multi-round medical LLM collaboration pipeline.
+- **[MDAgents GitHub README](https://github.com/mitmedialab/MDAgents)** — Usage guide for the adaptive solo/group medical LLM collaboration framework.
+- **[AgentClinic Tutorials](https://github.com/SamuelSchmidgall/AgentClinic)** — Includes a walkthrough for building custom multi-agent clinical simulation cases.
+- **[CrewAI Documentation](https://docs.crewai.com/)** — Guide to defining role-based agent "crews," directly transferable to modeling distinct clinical specialties as collaborating agents.
 
 ## License
 
